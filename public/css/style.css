@@ -8,6 +8,14 @@ body{
     flex:1; 
 }
 
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
 .navbar{
     height:5rem;
     background-color: white ;
@@ -41,20 +49,62 @@ body{
 .f-info{
     display :flex;
     flex-wrap: wrap;
-    height:6.5rem;
+    min-height:6.5rem;
     justify-content:center;
     align-items:center;
     text-align: center;
     background-color: aliceblue;
-
+    padding: 1rem;
 }
+
 .f-info-socials{
     width:100%;
-
-
+    margin-bottom: 0.5rem;
 }
+
+.f-info-socials a {
+    color: #333;
+    transition: color 0.2s ease;
+}
+
+.f-info-socials a:hover {
+    color: #ff385c;
+}
+
 .company{
     width:100%;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.f-info-links {
+    width: 100%;
+}
+
+/* Mobile responsive footer */
+@media (max-width: 768px) {
+    .f-info {
+        padding: 0.75rem;
+        min-height: auto;
+    }
+    
+    .f-info-socials {
+        margin-bottom: 0.75rem;
+    }
+    
+    .f-info-socials a {
+        margin-right: 0.5rem !important;
+    }
+    
+    .company {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .f-info-links a {
+        font-size: 0.9rem;
+        margin-right: 0.5rem !important;
+    }
 }
 
 /* 
@@ -68,22 +118,49 @@ card styling */
 
 .card{
     border:none !important;
-    margin:2rem;
-   
+    margin:0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .card-img-top{
     border-radius:1rem !important;
     width :100%;
-    object-fit:cover !important
+    object-fit:cover !important;
+    transition: transform 0.2s ease;
+}
 
-     
+.card:hover .card-img-top {
+    transform: scale(1.02);
 }
+
 .card-body{
-    padding:0 !important;
+    padding:1rem !important;
 }
-.card-title p{
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
     font-weight: 400;
+    color: #666;
+}
+
+/* Mobile responsive cards */
+@media (max-width: 768px) {
+    .card {
+        margin: 0.25rem;
+    }
+    
+    .card-body {
+        padding: 0.75rem !important;
+    }
 }
 
 .links{
@@ -116,9 +193,15 @@ card styling */
     gap:16px;
     padding:10px;
     overflow-x:auto;
-    white-space:norap;
+    white-space:nowrap;
     align-items: center;
     justify-content: flex-start;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.filters::-webkit-scrollbar {
+    display: none;
 }
 
 .filter{
@@ -132,14 +215,63 @@ card styling */
     cursor: pointer;
     transition: all 0.2s ease;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    min-width: fit-content;
 }
-
-
 
 .filter:hover {
     background: #ff385c;
     color: white;
     transform: scale(1.05);
+}
+
+/* Mobile responsive filters */
+@media (max-width: 576px) {
+    .filters {
+        gap: 8px;
+        padding: 8px;
+    }
+    
+    .filter {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .form-control {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* Touch-friendly buttons */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .filter {
+        min-height: 44px;
+        min-width: 44px;
+    }
 }
   
 

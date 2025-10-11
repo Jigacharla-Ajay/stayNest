@@ -1,23 +1,31 @@
 <% layout('/layouts/boilerplate')%>
-<div class="row">
-        <div class="col-8 offset-2">
-            <br>
-            <h3>Login Up</h3><br>    
-        <form method="POST" action="/login" class="needs-validation" novalidate>
-            <div class="mb-3">
-                    <label class="form-label" for="username" >Username</label>
-                    <input name="username" class="form-control" id="username" required>
-                    <div class="invalid-feedback">
-                        Please provide a title.
+<div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-center mb-4">Login</h3>    
+                    <form method="POST" action="/login" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username</label>
+                            <input name="username" class="form-control" id="username" required>
+                            <div class="invalid-feedback">
+                                Please provide a username.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>  
+                            <input type="password" name="password" id="password" class="form-control" required> 
+                            <div class="invalid-feedback">
+                                Please provide a password.  
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-success btn-lg">Log In</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p class="mb-0">Don't have an account? <a href="/signup" class="text-decoration-none">Sign up</a></p>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" for="password" >Password</label>  
-                    <input type="password" name="password" id="password" class="form-control" required> 
-                    <div class="invalid-feedback">
-                        Please provide a password.  
-                        </div>
-                </div>
-                <button class="btn btn-success">Log In</button>
-        </form>
-        <br>
+            </div>
+        </div>

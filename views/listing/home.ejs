@@ -65,48 +65,50 @@
 
 
 <div class="filters">
-  <div class="filter"><i class="fa-solid fa-fire"></i> Trending</div>
-  <div class="filter"><i class="fa-solid fa-umbrella-beach"></i> Beachfront</div> 
-  <div class="filter"><i class="fa-solid fa-mountain"></i> Mountains</div> 
-  <div class="filter"><i class="fa-solid fa-cabin"></i> Cabins</div>
-  <div class="filter"><i class="fa-solid fa-city"></i> City</div>
-  <div class="filter"><i class="fa-solid fa-water"></i> Lakefront</div>
-  <div class="filter"><i class="fa-solid fa-tree"></i> Forest</div>
-  <div class="filter"><i class="fa-solid fa-snowflake"></i> Arctic</div>
-  <div class="filter"><i class="fa-solid fa-campground"></i> Camping</div>
-  <div class="filter"><i class="fa-solid fa-tent"></i> Glamping</div>
-  <div class="filter"><i class="fa-solid fa-person-swimming"></i> Pool</div>
-  <div class="filter"><i class="fa-solid fa-mug-hot"></i> Cozy Stays</div>
+  <div class="filter"><i class="fa-solid fa-fire"></i> <span class="d-none d-sm-inline">Trending</span></div>
+  <div class="filter"><i class="fa-solid fa-umbrella-beach"></i> <span class="d-none d-sm-inline">Beachfront</span></div> 
+  <div class="filter"><i class="fa-solid fa-mountain"></i> <span class="d-none d-sm-inline">Mountains</span></div> 
+  <div class="filter"><i class="fa-solid fa-cabin"></i> <span class="d-none d-sm-inline">Cabins</span></div>
+  <div class="filter"><i class="fa-solid fa-city"></i> <span class="d-none d-sm-inline">City</span></div>
+  <div class="filter"><i class="fa-solid fa-water"></i> <span class="d-none d-sm-inline">Lakefront</span></div>
+  <div class="filter"><i class="fa-solid fa-tree"></i> <span class="d-none d-sm-inline">Forest</span></div>
+  <div class="filter"><i class="fa-solid fa-snowflake"></i> <span class="d-none d-sm-inline">Arctic</span></div>
+  <div class="filter"><i class="fa-solid fa-campground"></i> <span class="d-none d-sm-inline">Camping</span></div>
+  <div class="filter"><i class="fa-solid fa-tent"></i> <span class="d-none d-sm-inline">Glamping</span></div>
+  <div class="filter"><i class="fa-solid fa-person-swimming"></i> <span class="d-none d-sm-inline">Pool</span></div>
+  <div class="filter"><i class="fa-solid fa-mug-hot"></i> <span class="d-none d-sm-inline">Cozy Stays</span></div>
 </div>
 
-<div class="bachi2">
-  <div class="form-check form-switch form-check-reverse taxy right-aligned-switch">
+<div class="d-flex justify-content-end mb-3">
+  <div class="form-check form-switch">
     <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-    <label class="form-check-label ajay" for="switchCheckDefault">Display total after taxes</label>
+    <label class="form-check-label" for="switchCheckDefault">
+      <span class="d-none d-sm-inline">Display total after taxes</span>
+      <span class="d-sm-none">Tax included</span>
+    </label>
   </div>
 </div>
 
 
-<div class="row row-cols-lg-3  row-cols-md-2 row-cols-sm-1 ">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
   <% for (let list of listing) { %>
-    <a href="/listing/<%=list._id %> " class="links">
-      <div class="card" style="width: 18rem;">
-        <div class="card-img-overlay">perfect destination</div>
-        <img src="<%= list.image.url %>" class="card-img-top" alt="listing" style="width:18rem; height:15rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%= list.title %></h5>
-        
-          <p><%= list.description %></p>
-             <p class="card-text">
-  &#8377;<%= list.price ? list.price.toLocaleString("en-IN") : "N/A" %>
-  <i class="gst"> &nbsp; &nbsp;   +18% GST </i>
-</p>   
+    <div class="col">
+      <a href="/listing/<%=list._id %> " class="links text-decoration-none">
+        <div class="card h-100">
+          <div class="card-img-overlay">perfect destination</div>
+          <img src="<%= list.image.url %>" class="card-img-top" alt="listing" style="height: 200px; object-fit: cover;">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><%= list.title %></h5>
+            <p class="card-text flex-grow-1"><%= list.description %></p>
+            <p class="card-text mb-0">
+              &#8377;<%= list.price ? list.price.toLocaleString("en-IN") : "N/A" %>
+              <i class="gst"> &nbsp; &nbsp;   +18% GST </i>
+            </p>   
           </div>
-      </div>
-    </a>
-    
-    
-<%}%>
+        </div>
+      </a>
+    </div>
+  <%}%>
 </div>
 
 

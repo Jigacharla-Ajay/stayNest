@@ -8,10 +8,11 @@
 <body> -->
     <% layout('/layouts/boilerplate')%>
     
-    <div class="row">
-        <div class="col-8 offset-2">
-            <br>
-            <h3>editing the content</h3><br>
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-8">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="card-title text-center mb-4">Edit Property</h3>
         <form method="POST" action="/listing/<%=list._id%>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
@@ -28,31 +29,35 @@
                 </div>
             </div>
             <div class="row">
-                <div class="mb-3 col-4">
-                    <label class="form-label" for="price">Price</label>
-                    <input type="number" placeholder="price of property" name="listing[price]" value="<%=list.price%>" class="form-control" required min="0">
+                <div class="mb-3 col-12 col-md-6">
+                    <label class="form-label" for="price">Price per night</label>
+                    <div class="input-group">
+                        <span class="input-group-text">₹</span>
+                        <input type="number" placeholder="Enter price" name="listing[price]" value="<%=list.price%>" class="form-control" required min="0">
+                    </div>
                     <div class="invalid-feedback">
                         Please enter a valid price.
                     </div>
                 </div>
-                <div class="mb-3 col-8">
+                <div class="mb-3 col-12 col-md-6">
                     <label class="form-label" for="country">Country</label>
-                    <input placeholder="enter country" type="text" name="listing[country]" value="<%=list.country%>" class="form-control" required>
+                    <input placeholder="Enter country" type="text" name="listing[country]" value="<%=list.country%>" class="form-control" required>
                     <div class="invalid-feedback">
                         Please enter a country.
                     </div>
                 </div>
-                
             </div>
             <div class="mb-3">
-                <p>Original Image</p>
-                <img src="<%= originalUrl %>" style="height:150px; width:200px; border-radius: 12px;" />
-
+                <label class="form-label">Current Image</label>
+                <div class="text-center">
+                    <img src="<%= originalUrl %>" class="img-fluid rounded" style="max-height: 200px; max-width: 300px;" alt="Current property image" />
+                </div>
             </div>
 
             <div class="mb-3">
-                <label class="form-label" for="image">Upload file</label>
-                <input placeholder="image of property" type="file" name="listing[image]"  class="form-control">
+                <label class="form-label" for="image">Upload New Image</label>
+                <input type="file" name="listing[image]" class="form-control" accept="image/*">
+                <div class="form-text">Leave empty to keep current image</div>
             </div>
             
             
@@ -66,13 +71,13 @@
             
            
             
-            <button class="btn btn-danger">submit</button>
-    
-            
+            <div class="d-grid">
+                <button class="btn btn-danger btn-lg">Update Property</button>
+            </div>
         </form>
+                </div>
+            </div>
         </div>
-
-  
     </div>
     
 <!-- </body>
