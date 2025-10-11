@@ -1,0 +1,146 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+.container{
+    flex:1; 
+}
+
+.navbar{
+    height:5rem;
+    background-color: white ;
+}
+.fa-maps{
+    color:brown;
+    font-size:1.5rem !important; 
+
+}
+.nav-link{
+    color:#222222 !important;  
+} 
+.aurbnb{
+    font-size: 2.5rem !important;
+}
+
+/* footer css*/
+.f-info-links a{
+    text-decoration:none;
+    color:#222222;
+    padding-right:5px;
+   
+
+}
+.f-info-links a:hover{
+    text-decoration:underline;
+    width:100%;
+    
+    
+}
+.f-info{
+    display :flex;
+    flex-wrap: wrap;
+    height:6.5rem;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    background-color: aliceblue;
+
+}
+.f-info-socials{
+    width:100%;
+
+
+}
+.company{
+    width:100%;
+}
+
+/* 
+card styling */
+
+
+
+.cards {
+    text-decoration: none;
+}
+
+.card{
+    border:none !important;
+    margin:2rem;
+   
+}
+
+.card-img-top{
+    border-radius:1rem !important;
+    width :100%;
+    object-fit:cover !important
+
+     
+}
+.card-body{
+    padding:0 !important;
+}
+.card-title p{
+    font-weight: 400;
+}
+
+.links{
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity:0;
+}
+
+.card-img-overlay:hover{
+    opacity:0.1;
+    background-color: white;
+}
+.bachi{
+    border:2px solid black;
+    border-radius:1rem;
+
+}
+
+.bachi2{
+    display:flex;
+    justify-content:center;
+
+}
+/* filter css */
+
+.filters{
+    display:flex;
+    gap:16px;
+    padding:10px;
+    overflow-x:auto;
+    white-space:norap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.filter{
+    flex-shrink:0;
+    display: flex;
+    align-items:center;
+    gap:6px;
+    padding:8px 14px;
+    border-radius:20px;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+
+
+.filter:hover {
+    background: #ff385c;
+    color: white;
+    transform: scale(1.05);
+}
+  
+
+

@@ -1,0 +1,79 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit this content</title>
+</head>
+<body> -->
+    <% layout('/layouts/boilerplate')%>
+    
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            <h3>editing the content</h3><br>
+        <form method="POST" action="/listing/<%=list._id%>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input placeholder="title" name="listing[title]" value="<%=list.title%>" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please provide a title.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea placeholder="description" name="listing[description]" class="form-control" required><%=list.description%></textarea>
+                <div class="invalid-feedback">
+                    Please provide a description.
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-4">
+                    <label class="form-label" for="price">Price</label>
+                    <input type="number" placeholder="price of property" name="listing[price]" value="<%=list.price%>" class="form-control" required min="0">
+                    <div class="invalid-feedback">
+                        Please enter a valid price.
+                    </div>
+                </div>
+                <div class="mb-3 col-8">
+                    <label class="form-label" for="country">Country</label>
+                    <input placeholder="enter country" type="text" name="listing[country]" value="<%=list.country%>" class="form-control" required>
+                    <div class="invalid-feedback">
+                        Please enter a country.
+                    </div>
+                </div>
+                
+            </div>
+            <div class="mb-3">
+                <p>Original Image</p>
+                <img src="<%= originalUrl %>" style="height:150px; width:200px; border-radius: 12px;" />
+
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="image">Upload file</label>
+                <input placeholder="image of property" type="file" name="listing[image]"  class="form-control">
+            </div>
+            
+            
+            <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input placeholder="enter the location" type="text" name="listing[location]" value="<%=list.location%>" class="form-control" required>
+                <div class="invalid-feedback">
+                    Please enter a location.
+                </div>
+            </div>
+            
+           
+            
+            <button class="btn btn-danger">submit</button>
+    
+            
+        </form>
+        </div>
+
+  
+    </div>
+    
+<!-- </body>
+</html> -->

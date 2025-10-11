@@ -1,0 +1,132 @@
+<% layout('/layouts/boilerplate')%>
+
+<%=success%>
+
+<style>
+ .taxy {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between switch and label */
+  justify-content: flex-end; /* Moves content to right if needed */
+  margin: 10px 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  color: #333;
+  margin-right:1.5rem;
+}
+
+/* Optional: make switch bigger */
+.taxy .form-check-input {
+  width: 50px;
+  height: 28px;
+  cursor: pointer;
+}
+
+/* Optional: smooth toggle animation */
+.taxy .form-check-input:checked {
+  background-color: #ff385c; /* Airbnb-style pink */
+  border-color: #ff385c;
+}
+
+/* Label styling */
+.taxy .form-check-label {
+  cursor: pointer;
+}
+.tax-toggle-container {
+    display: flex; /* Makes the container a flexbox */
+    justify-content: flex-end; /* Pushes content to the right (end) */
+    align-items: center; /* Vertically centers the switch */
+    /* You may need to adjust the width and margin/padding based on your layout */
+    width: 100%; 
+}
+.right-aligned-switch {
+    margin-left: auto; /* Pushes the element to the far right */
+}
+
+
+.ajay{
+  
+  margin-left:40px;
+  display:inline;
+}
+.bachi2{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+  /* border:1px solid black; */
+  border-radius:10px;
+  height:30px;
+  padding:5px;
+}
+</style>
+
+
+
+<div class="filters">
+  <div class="filter"><i class="fa-solid fa-fire"></i> Trending</div>
+  <div class="filter"><i class="fa-solid fa-umbrella-beach"></i> Beachfront</div> 
+  <div class="filter"><i class="fa-solid fa-mountain"></i> Mountains</div> 
+  <div class="filter"><i class="fa-solid fa-cabin"></i> Cabins</div>
+  <div class="filter"><i class="fa-solid fa-city"></i> City</div>
+  <div class="filter"><i class="fa-solid fa-water"></i> Lakefront</div>
+  <div class="filter"><i class="fa-solid fa-tree"></i> Forest</div>
+  <div class="filter"><i class="fa-solid fa-snowflake"></i> Arctic</div>
+  <div class="filter"><i class="fa-solid fa-campground"></i> Camping</div>
+  <div class="filter"><i class="fa-solid fa-tent"></i> Glamping</div>
+  <div class="filter"><i class="fa-solid fa-person-swimming"></i> Pool</div>
+  <div class="filter"><i class="fa-solid fa-mug-hot"></i> Cozy Stays</div>
+</div>
+
+<div class="bachi2">
+  <div class="form-check form-switch form-check-reverse taxy right-aligned-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+    <label class="form-check-label ajay" for="switchCheckDefault">Display total after taxes</label>
+  </div>
+</div>
+
+
+<div class="row row-cols-lg-3  row-cols-md-2 row-cols-sm-1 ">
+  <% for (let list of listing) { %>
+    <a href="/listing/<%=list._id %> " class="links">
+      <div class="card" style="width: 18rem;">
+        <div class="card-img-overlay">perfect destination</div>
+        <img src="<%= list.image.url %>" class="card-img-top" alt="listing" style="width:18rem; height:15rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= list.title %></h5>
+        
+          <p><%= list.description %></p>
+             <p class="card-text">
+  &#8377;<%= list.price ? list.price.toLocaleString("en-IN") : "N/A" %>
+  <i class="gst"> &nbsp; &nbsp;   +18% GST </i>
+</p>   
+          </div>
+      </div>
+    </a>
+    
+    
+<%}%>
+</div>
+
+
+<script>
+  const switchCheckDefault = document.getElementById('switchCheckDefault');
+  switchCheckDefault.addEventListener("click",()=>{
+    const gst = document.getElementsByClassName('gst');
+    for(info of gst){
+      if(switchCheckDefault.checked){
+        info.style.display = 'inline';
+      }else{
+        info.style.display = 'none';
+      }
+    }
+  });
+  // switchCheckDefault.checked = false;
+  // const gst = document.getElementsByClassName('gst');
+  // for(info of gst){
+  //   info.style.display = 'none';
+  // }
+
+</script>
+

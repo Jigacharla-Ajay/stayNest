@@ -1,0 +1,36 @@
+<% layout('layouts/boilerplate') -%>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        Error <%= statusCode || 500 %>
+                    </h4>
+                </div>
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="fa-solid fa-bug fa-5x text-danger"></i>
+                    </div>
+                    <h5 class="card-title text-danger">Oops! Something went wrong</h5>
+                    <p class="card-text">
+                        <%= message || 'An unexpected error occurred. Please try again later.' %>
+                    </p>
+                    <div class="mt-4">
+                        <a href="/" class="btn btn-primary me-2">
+                            <i class="fa-solid fa-house"></i> Go Home
+                        </a>
+                        <a href="/listing" class="btn btn-secondary">
+                            <i class="fa-solid fa-list"></i> View Listings
+                        </a>
+                    </div>
+                </div>
+                <div class="card-footer text-muted text-center">
+                    <small>If this problem persists, please contact support.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

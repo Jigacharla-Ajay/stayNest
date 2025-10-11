@@ -1,0 +1,83 @@
+<style>
+  .search-container {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 40px;
+  padding: 8px 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  width: 350px;
+  transition: all 0.3s ease;
+}
+
+.search-container:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.search-container input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  padding: 8px;
+}
+
+.search-container button {
+  background: #ff385c; /* Airbnb-style pink-red */
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.search-container button:hover {
+  background: #e11d48;
+}
+
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/listing"><i class="fa-solid fa-map"></i>&nbsp; <b>stayNest</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ">
+         
+          <a class="nav-link" href="/listing">Explore</a>
+         
+        </div>
+        <div class="search-container ms-auto">
+  <input type="text" placeholder="Search destinations, cabins, or cities..." />
+  <button><i class="fa fa-search"></i></button>
+</div>
+
+      
+        <div class="navbar-nav ms-auto">
+           <a class="nav-link" href="/listing/new">Add new Listing</a>
+          <%if(!currentUser){ %>
+          
+          <a class="nav-link" href="/Login"><b>Login</b> <i class="fa-solid fa-right-to-bracket"></i></a>
+          <a class="nav-link" href="/signup"><b>Sign up</b> <i class="fa-solid fa-user-plus"></i></a>
+          <%}%>  
+          <% if(currentUser) { %> 
+          <a class="nav-link" href="/logout">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        
+      </div>
+    </div>
+  </nav>
