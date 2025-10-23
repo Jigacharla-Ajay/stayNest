@@ -58,7 +58,37 @@ router.route("/:id")
 
 
 
-// PUT ROUTE TO SEND EDITED CONTENT
+// GET /listings?search=...&tags=...
+router.get("/listings", async (req, res) => {
+    try {
+        const { search, tags } = req.query; // tags can be comma-separated
+        
+        const query = {};
+
+        // Search by title, description, or location (case-insensitive)
+        if (search) {
+            query.$or = [
+                { title: { $regex: search, $options: "i" } },
+                { description: { $regex: search, $options: "i" } },
+                { location: { $regex: search, $options: "i" } },
+                { country: { $regex: search, $options: "i" } }
+            ];
+        }
+
+        // Filter by tags
+        if (tags) {
+            const tagsArray = tags.split(","); // e.g., "Beachfront,Trending"
+            query.tags = { $in: tagsArray };
+        }
+
+    const listings = await Listing.find(query).populate("owner review");
+    // render the existing listing home view and pass variables expected by the template
+    res.render("listing/home.ejs", { listing: listings, searchQuery: search, tags });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Server Error");
+    }
+});
 
 
 

@@ -78,13 +78,20 @@
       
         <div class="navbar-nav">
            <a class="nav-link" href="/listing/new">Add new Listing</a>
-          <%if(!currentUser){ %>
-          <a class="nav-link" href="/Login"><b>Login</b> <i class="fa-solid fa-right-to-bracket"></i></a>
-          <a class="nav-link" href="/signup"><b>Sign up</b> <i class="fa-solid fa-user-plus"></i></a>
-          <%}%>  
-          <% if(currentUser) { %> 
-          <a class="nav-link" href="/logout">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
-          <% } %>
+        <% if (typeof currentUser !== "undefined" && currentUser) { %>
+  <!-- Logged-in user links -->
+  <a class="nav-link" href="/logout">
+    <b>Logout</b> <i class="fa-solid fa-right-from-bracket"></i>
+  </a>
+<% } else { %>
+  <!-- Guest user links -->
+  <a class="nav-link" href="/login">
+    <b>Login</b> <i class="fa-solid fa-right-to-bracket"></i>
+  </a>
+  <a class="nav-link" href="/signup">
+    <b>Sign up</b> <i class="fa-solid fa-user-plus"></i>
+  </a>
+<% } %>
         </div>
       </div>
     </div>

@@ -60,24 +60,32 @@
   height:30px;
   padding:5px;
 }
+.filters{
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom:20px;
+}
 </style>
 
 
 
-<div class="filters">
-  <div class="filter"><i class="fa-solid fa-fire"></i> <span class="d-none d-sm-inline">Trending</span></div>
-  <div class="filter"><i class="fa-solid fa-umbrella-beach"></i> <span class="d-none d-sm-inline">Beachfront</span></div> 
-  <div class="filter"><i class="fa-solid fa-mountain"></i> <span class="d-none d-sm-inline">Mountains</span></div> 
-  <div class="filter"><i class="fa-solid fa-cabin"></i> <span class="d-none d-sm-inline">Cabins</span></div>
-  <div class="filter"><i class="fa-solid fa-city"></i> <span class="d-none d-sm-inline">City</span></div>
-  <div class="filter"><i class="fa-solid fa-water"></i> <span class="d-none d-sm-inline">Lakefront</span></div>
-  <div class="filter"><i class="fa-solid fa-tree"></i> <span class="d-none d-sm-inline">Forest</span></div>
-  <div class="filter"><i class="fa-solid fa-snowflake"></i> <span class="d-none d-sm-inline">Arctic</span></div>
-  <div class="filter"><i class="fa-solid fa-campground"></i> <span class="d-none d-sm-inline">Camping</span></div>
-  <div class="filter"><i class="fa-solid fa-tent"></i> <span class="d-none d-sm-inline">Glamping</span></div>
-  <div class="filter"><i class="fa-solid fa-person-swimming"></i> <span class="d-none d-sm-inline">Pool</span></div>
-  <div class="filter"><i class="fa-solid fa-mug-hot"></i> <span class="d-none d-sm-inline">Cozy Stays</span></div>
+<div class="filters" >
+  <div class="filter" data-tag="Trending"><i class="fa-solid fa-fire"></i> <span class="d-none d-sm-inline">Trending</span></div>
+  <div class="filter" data-tag="Beachfront"><i class="fa-solid fa-umbrella-beach"></i> <span class="d-none d-sm-inline">Beachfront</span></div>
+  <div class="filter" data-tag="Mountains"><i class="fa-solid fa-mountain"></i> <span class="d-none d-sm-inline">Mountains</span></div>
+  <div class="filter" data-tag="Cabins"><i class="fa-solid fa-cabin"></i> <span class="d-none d-sm-inline">Cabins</span></div>
+  <div class="filter" data-tag="City"><i class="fa-solid fa-city"></i> <span class="d-none d-sm-inline">City</span></div>
+  <div class="filter" data-tag="Lakefront"><i class="fa-solid fa-water"></i> <span class="d-none d-sm-inline">Lakefront</span></div>
+  <div class="filter" data-tag="Forest"><i class="fa-solid fa-tree"></i> <span class="d-none d-sm-inline">Forest</span></div>
+  <div class="filter" data-tag="Arctic"><i class="fa-solid fa-snowflake"></i> <span class="d-none d-sm-inline">Arctic</span></div>
+  <div class="filter" data-tag="Camping"><i class="fa-solid fa-campground"></i> <span class="d-none d-sm-inline">Camping</span></div>
+  <div class="filter" data-tag="Glamping"><i class="fa-solid fa-tent"></i> <span class="d-none d-sm-inline">Glamping</span></div>
+  <div class="filter" data-tag="Pool"><i class="fa-solid fa-person-swimming"></i> <span class="d-none d-sm-inline">Pool</span></div>
+  <div class="filter" data-tag="Cozy Stays"><i class="fa-solid fa-mug-hot"></i> <span class="d-none d-sm-inline">Cozy Stays</span></div>
 </div>
+
 
 <div class="d-flex justify-content-end mb-3">
   <div class="form-check form-switch">
@@ -110,6 +118,7 @@
     </div>
   <%}%>
 </div>
+<%- include("../includes/chatbot.ejs")%>
 
 
 <script>
@@ -131,4 +140,5 @@
   // }
 
 </script>
+
 

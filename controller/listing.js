@@ -41,6 +41,10 @@ module.exports.createlisting=async (req,res,next)=>{
     const url = file ? file.path : undefined;
     const filename = file ? file.filename : undefined;
     let list=req.body.listing;     //the thing list[name],list[description] etc used for post to render abd not list.name,list.description
+    // parse tags if provided as comma-separated string into an array
+    if (list && list.tags && typeof list.tags === 'string') {
+        list.tags = list.tags.split(',').map(t => t.trim()).filter(Boolean);
+    }
     const newlist=new Listing(list);
     newlist.owner=req.user._id;
     if (url && filename) {
@@ -57,8 +61,8 @@ module.exports.editlisting=async(req,res)=>{
     if(!list){ // Add check for non-existent listing
         throw new ExpressError(404, 'Listing Not Found!');
     }
-    let originalUrl=list.image.url;
-    originalUrl.replace("/upload","/upload/h_300,w_250");
+    let originalUrl = (list && list.image && list.image.url) ? list.image.url : null;
+    if (originalUrl) originalUrl = originalUrl.replace("/upload","/upload/h_300,w_250");
     res.render("listing/edit.ejs",{list,originalUrl});
 
 }
@@ -66,6 +70,10 @@ module.exports.editlisting=async(req,res)=>{
 
 module.exports.updatelisting=async (req,res)=>{
     let {id}=req.params;
+    // parse tags if provided (string -> array)
+    if (req.body && req.body.listing && req.body.listing.tags && typeof req.body.listing.tags === 'string') {
+        req.body.listing.tags = req.body.listing.tags.split(',').map(t => t.trim()).filter(Boolean);
+    }
     let listing=await Listing.findByIdAndUpdate(id,{...req.body.listing})
     if(typeof req.file!="undefined"){
         let url=req.file.path;

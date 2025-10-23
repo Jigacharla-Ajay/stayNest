@@ -16,23 +16,25 @@
 
 <body>
     
-    <%-include("../includes/navbar.ejs")%>
+    <%- include("../includes/navbar.ejs")%>
+    
     
     <div class="container">
         <main class="container mt-3"> 
-            <% if (success && success.length) { %>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <%= success %> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <% } %>
+            <% if (typeof success !== 'undefined' && success.length) { %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= success %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
 
-            <% if (error && error.length) { %>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <%= error %> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <% } %>
+<% if (typeof error !== 'undefined' && error.length) { %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= error %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+
 
             <%- body %> 
         </main>

@@ -6,7 +6,12 @@ module.exports.listingSchema=Joi.object({
         location:Joi.string().required(),
         country:Joi.string().required(),
         price:Joi.number().required().min(1),
-        image:Joi.string().allow("",null)
+        image:Joi.string().allow("",null),
+        // tags may be submitted as a comma-separated string or as an array of strings
+        tags: Joi.alternatives().try(
+            Joi.string().allow('', null),
+            Joi.array().items(Joi.string())
+        )
     }).required()
 })
 module.exports.reviewSchema=Joi.object({
